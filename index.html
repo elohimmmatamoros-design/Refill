@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#174f42">
+  <title>Refill — Inventario inteligente</title>
+  <meta name="description" content="Escanea tu factura, organiza tus alimentos y descubre recetas con Refill.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <div class="phone">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">r</span><span>refill</span></div>
+        <div class="header-actions">
+          <button class="tip-shortcut" data-tab="tips" aria-label="Tips de conservación">♧</button>
+          <button class="avatar" aria-label="Perfil">EM</button>
+        </div>
+      </header>
+
+      <div id="view" aria-live="polite"></div>
+
+      <input id="receiptInput" class="hidden-input" type="file" accept="image/*" capture="environment">
+
+      <nav class="bottom-nav" aria-label="Navegación principal">
+        <button data-tab="home" class="active"><span>⌂</span>Inicio</button>
+        <button data-tab="inventory"><span>▦</span>Inventario</button>
+        <button id="scanButton" class="center-action" aria-label="Escanear factura"><span>▣</span></button>
+        <button data-tab="recipes"><span>✦</span>Recetas</button>
+        <button data-tab="delivery"><span>◎</span>Comprar</button>
+      </nav>
+
+      <div id="overlay"></div>
+      <div id="toast" class="toast" hidden></div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
