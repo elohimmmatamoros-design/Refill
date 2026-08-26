@@ -3,19 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#174f42">
+  <meta name="theme-color" content="#0A3A5D">
   <title>Refill — Inventario inteligente</title>
   <meta name="description" content="Escanea tu factura, organiza tus alimentos y descubre recetas con Refill.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main class="app-shell">
     <div class="phone">
       <header class="topbar">
-        <div class="brand"><span class="brand-mark">r</span><span>refill</span></div>
+        <button class="brand" data-tab="home" aria-label="Ir al inicio">
+          <span class="brand-icon" aria-hidden="true"></span>
+          <span>Refill</span>
+        </button>
         <div class="header-actions">
           <button class="tip-shortcut" data-tab="tips" aria-label="Tips de conservación">♧</button>
-          <button class="avatar" aria-label="Perfil">EM</button>
+          <button class="avatar" aria-label="Perfil de demostración">EM</button>
         </div>
       </header>
 
@@ -35,6 +41,9 @@
       <div id="toast" class="toast" hidden></div>
     </div>
   </main>
+
+  <!-- OCR en el navegador: no requiere servidor ni clave de API. -->
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@6/dist/tesseract.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
