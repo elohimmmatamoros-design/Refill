@@ -23,11 +23,11 @@ const recipeCatalog = [
 ];
 
 const stores = [
-  { name: "La Colonia", logo: "assets/logos/la-colonia.png", time: "40–55 min", shipping: 45, base: 276, url: "https://www.lacolonia.com/" },
-  { name: "Diprova", logo: "assets/logos/diprova.webp", time: "45–60 min", shipping: 55, base: 269, url: "https://diprova.com/" },
-  { name: "Walmart", logo: "assets/logos/walmart.svg", time: "50–70 min", shipping: 59, base: 291, url: "https://www.walmartcentroamerica.com/" },
-  { name: "Paiz", logo: "assets/logos/paiz.jpg", time: "45–65 min", shipping: 52, base: 283, url: "https://www.walmartcentroamerica.com/" },
-  { name: "Más x Menos", logo: "assets/logos/mas-x-menos.png", time: "35–50 min", shipping: 49, base: 284, url: "https://www.walmartcentroamerica.com/", regional: true }
+  { name: "La Colonia", logo: "assets/la-colonia.jpg", time: "40–55 min", shipping: 45, base: 276, url: "https://www.lacolonia.com/" },
+  { name: "Diprova", logo: "assets/diprova.jpg", time: "45–60 min", shipping: 55, base: 269, url: "https://diprova.com/" },
+  { name: "Walmart", logo: "assets/walmart.png", time: "50–70 min", shipping: 59, base: 291, url: "https://www.walmartcentroamerica.com/" },
+  { name: "Paiz", logo: "assets/paiz.png", time: "45–65 min", shipping: 52, base: 283, url: "https://www.walmartcentroamerica.com/" },
+  { name: "Más x Menos", logo: "assets/mas-x-menos.jpg", time: "35–50 min", shipping: 49, base: 284, url: "https://www.walmartcentroamerica.com/", regional: true }
 ];
 
 function loadItems() {
