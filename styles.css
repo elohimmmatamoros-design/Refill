@@ -13,13 +13,9 @@
   --shadow:0 14px 38px rgba(10,58,93,.13);
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
-html{
-  background:#dce9ef;
-}
+html{background:#dce9ef}
 
 body{
   margin:0;
@@ -28,23 +24,9 @@ body{
   background:linear-gradient(145deg,#e9f2f5,#d7e5ea);
 }
 
-button,
-input,
-textarea{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-.hidden-input{
-  display:none;
-}
-
-/* =========================
-   APP
-========================= */
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+.hidden-input{display:none}
 
 .app-shell{
   min-height:100vh;
@@ -63,10 +45,6 @@ button{
   box-shadow:0 0 60px rgba(10,58,93,.13);
 }
 
-/* =========================
-   HEADER
-========================= */
-
 .topbar{
   height:76px;
   background:var(--cream);
@@ -83,7 +61,7 @@ button{
   color:var(--blue);
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:9px;
   padding:0;
   font-family:"Poppins",sans-serif;
   font-size:23px;
@@ -91,21 +69,16 @@ button{
   letter-spacing:-1px;
 }
 
-/* LOGO REFILL CORREGIDO */
-
 .brand-icon{
-  width:48px;
-  height:48px;
-  flex:0 0 48px;
-
-  background-image:url("assets/refill-logo.png");
-  background-size:contain;
-  background-position:center;
-  background-repeat:no-repeat;
-
-  background-color:transparent;
+  width:42px;
+  height:46px;
   border-radius:12px;
-  box-shadow:none;
+  background-color:var(--cream);
+  background-image:url("assets/refill-logo.png");
+  background-size:145% auto;
+  background-position:center top;
+  background-repeat:no-repeat;
+  box-shadow:0 5px 12px rgba(10,58,93,.18);
 }
 
 .header-actions{
@@ -113,8 +86,7 @@ button{
   gap:8px;
 }
 
-.tip-shortcut,
-.avatar{
+.tip-shortcut,.avatar{
   width:38px;
   height:38px;
   border:0;
@@ -129,10 +101,6 @@ button{
   color:var(--aqua);
   font-size:20px;
 }
-
-/* =========================
-   HERO
-========================= */
 
 .hero{
   background:var(--blue);
@@ -161,13 +129,9 @@ button{
   letter-spacing:1.5px;
 }
 
-.eyebrow.dark{
-  color:var(--aqua);
-}
+.eyebrow.dark{color:var(--aqua)}
 
-h1,
-h2,
-h3{
+h1,h2,h3{
   font-family:"Poppins",sans-serif;
 }
 
@@ -183,10 +147,6 @@ h3{
   font-size:13px;
   margin:0 0 20px;
 }
-
-/* =========================
-   ESCANEAR FACTURA
-========================= */
 
 .scan-card{
   position:relative;
@@ -231,16 +191,9 @@ h3{
   color:#5d5c45;
 }
 
-.arrow{
-  font-size:25px;
-}
+.arrow{font-size:25px}
 
-/* =========================
-   CONTENT
-========================= */
-
-.content,
-.screen{
+.content,.screen{
   padding:21px 20px;
 }
 
@@ -248,10 +201,6 @@ h3{
   padding-top:26px;
   min-height:calc(100vh - 76px);
 }
-
-/* =========================
-   RESUMEN
-========================= */
 
 .summary-row{
   display:grid;
@@ -290,21 +239,14 @@ h3{
   flex-direction:column;
 }
 
-.summary b{
-  font-size:15px;
-}
+.summary b{font-size:15px}
 
 .summary small{
   font-size:8px;
   color:var(--muted);
 }
 
-/* =========================
-   TITULOS
-========================= */
-
-.section-heading,
-.screen-title{
+.section-heading,.screen-title{
   display:flex;
   align-items:flex-end;
   justify-content:space-between;
@@ -342,10 +284,6 @@ h3{
   font-size:10px;
 }
 
-/* =========================
-   INVENTARIO
-========================= */
-
 .item-list{
   display:flex;
   flex-direction:column;
@@ -380,9 +318,7 @@ h3{
   flex-direction:column;
 }
 
-.item-info strong{
-  font-size:12px;
-}
+.item-info strong{font-size:12px}
 
 .item-info small{
   color:var(--muted);
@@ -402,13 +338,8 @@ h3{
   font-weight:700;
 }
 
-.ok{
-  color:var(--aqua);
-}
-
-.danger{
-  color:var(--coral);
-}
+.ok{color:var(--aqua)}
+.danger{color:var(--coral)}
 
 .bar{
   height:4px;
@@ -431,9 +362,7 @@ h3{
   flex-direction:column;
 }
 
-.qty b{
-  font-size:16px;
-}
+.qty b{font-size:16px}
 
 .qty small{
   font-size:7px;
@@ -448,12 +377,7 @@ h3{
   padding:5px;
 }
 
-/* =========================
-   TARJETAS
-========================= */
-
-.recipe-teaser,
-.daily-tip{
+.recipe-teaser,.daily-tip{
   width:100%;
   margin-top:13px;
   border:0;
@@ -466,17 +390,14 @@ h3{
   text-align:left;
 }
 
-.recipe-teaser{
-  background:#e5f0f3;
-}
+.recipe-teaser{background:#e5f0f3}
 
 .daily-tip{
   background:#fff7dc;
   border:1px solid #f1deb1;
 }
 
-.recipe-teaser>span:nth-child(2),
-.daily-tip div{
+.recipe-teaser>span:nth-child(2),.daily-tip div{
   display:flex;
   flex-direction:column;
   flex:1;
@@ -493,22 +414,14 @@ h3{
   place-items:center;
 }
 
-.recipe-teaser small,
-.daily-tip small{
+.recipe-teaser small,.daily-tip small{
   font-size:7px;
   color:var(--aqua);
   font-weight:800;
   letter-spacing:.7px;
 }
 
-.recipe-teaser strong,
-.daily-tip b{
-  font-size:10px;
-}
-
-/* =========================
-   BUSQUEDA / FILTROS
-========================= */
+.recipe-teaser strong,.daily-tip b{font-size:10px}
 
 .search{
   height:44px;
@@ -574,12 +487,7 @@ h3{
   font-weight:700;
 }
 
-/* =========================
-   IA
-========================= */
-
-.ai-badge,
-.leaf-badge{
+.ai-badge,.leaf-badge{
   border-radius:12px;
   background:#e4eff2;
   color:var(--blue);
@@ -605,9 +513,7 @@ h3{
   gap:3px;
 }
 
-.prompt-box b{
-  font-size:11px;
-}
+.prompt-box b{font-size:11px}
 
 .prompt-box small{
   color:#c7dce8;
@@ -623,10 +529,6 @@ h3{
   font-size:8px;
   font-weight:800;
 }
-
-/* =========================
-   RECETAS
-========================= */
 
 .recipe-list{
   display:flex;
@@ -663,9 +565,7 @@ h3{
   font-size:7px;
 }
 
-.recipe-body{
-  padding:12px;
-}
+.recipe-body{padding:12px}
 
 .recipe-body>small{
   color:var(--muted);
@@ -692,10 +592,6 @@ h3{
   padding:0;
 }
 
-/* =========================
-   DELIVERY
-========================= */
-
 .shopping-summary{
   display:flex;
   align-items:center;
@@ -714,9 +610,7 @@ h3{
   gap:3px;
 }
 
-.shopping-summary b{
-  font-size:11px;
-}
+.shopping-summary b{font-size:11px}
 
 .shopping-summary small{
   color:#c8dce7;
@@ -749,9 +643,7 @@ h3{
   color:var(--muted);
 }
 
-.location b{
-  font-size:9px;
-}
+.location b{font-size:9px}
 
 .location button{
   border:0;
@@ -795,8 +687,6 @@ h3{
   padding:10px;
 }
 
-/* LOGOS SUPERMERCADOS */
-
 .store-logo{
   width:60px;
   height:48px;
@@ -804,9 +694,7 @@ h3{
   border:1px solid #eef0f2;
   background:#fff;
   object-fit:contain;
-  object-position:center;
   padding:5px;
-  display:block;
 }
 
 .store div{
@@ -815,18 +703,14 @@ h3{
   gap:4px;
 }
 
-.store div b{
-  font-size:11px;
-}
+.store div b{font-size:11px}
 
 .store div small{
   color:var(--muted);
   font-size:7px;
 }
 
-.store>strong{
-  font-size:10px;
-}
+.store>strong{font-size:10px}
 
 .store button{
   grid-column:3;
@@ -839,13 +723,7 @@ h3{
   font-weight:800;
 }
 
-.regional{
-  color:var(--coral)!important;
-}
-
-/* =========================
-   TIPS
-========================= */
+.regional{color:var(--coral)!important}
 
 .tip-feature{
   background:var(--blue);
@@ -937,10 +815,6 @@ h3{
   font-weight:800;
 }
 
-/* =========================
-   NAVEGACION INFERIOR
-========================= */
-
 .bottom-nav{
   position:fixed;
   bottom:0;
@@ -970,9 +844,7 @@ h3{
   gap:5px;
 }
 
-.bottom-nav button span{
-  font-size:19px;
-}
+.bottom-nav button span{font-size:19px}
 
 .bottom-nav .active{
   color:var(--blue);
@@ -990,13 +862,7 @@ h3{
   box-shadow:0 9px 20px rgba(235,125,92,.35);
 }
 
-.bottom-nav .center-action span{
-  font-size:25px;
-}
-
-/* =========================
-   OCR
-========================= */
+.bottom-nav .center-action span{font-size:25px}
 
 .overlay{
   position:fixed;
@@ -1067,10 +933,6 @@ h3{
   transition:width .25s;
 }
 
-/* =========================
-   MODALES
-========================= */
-
 .modal-backdrop{
   position:fixed;
   inset:0;
@@ -1128,8 +990,7 @@ h3{
   margin-top:9px;
 }
 
-.modal input,
-.modal textarea{
+.modal input,.modal textarea{
   border:1px solid var(--line);
   border-radius:10px;
   background:#fff;
@@ -1138,8 +999,7 @@ h3{
   color:var(--ink);
 }
 
-.modal input:focus,
-.modal textarea:focus{
+.modal input:focus,.modal textarea:focus{
   border-color:var(--sky);
   box-shadow:0 0 0 3px rgba(152,190,213,.2);
 }
@@ -1184,10 +1044,6 @@ h3{
   font-size:9px;
   font-weight:800;
 }
-
-/* =========================
-   REVISION FACTURA
-========================= */
 
 .review-head{
   display:grid;
@@ -1255,13 +1111,7 @@ h3{
   font-size:10px;
 }
 
-.review-total strong{
-  color:var(--coral);
-}
-
-/* =========================
-   TOAST
-========================= */
+.review-total strong{color:var(--coral)}
 
 .toast{
   position:fixed;
@@ -1279,54 +1129,12 @@ h3{
   box-shadow:var(--shadow);
 }
 
-/* =========================
-   ANIMACION
-========================= */
-
 @keyframes scan{
-  0%,100%{
-    top:11px;
-  }
-
-  50%{
-    top:174px;
-  }
+  0%,100%{top:11px}
+  50%{top:174px}
 }
-
-/* =========================
-   RESPONSIVE CELULAR
-========================= */
-
-@media(max-width:480px){
-
-  .topbar{
-    padding:12px 18px;
-  }
-
-  .brand{
-    gap:9px;
-    font-size:22px;
-  }
-
-  .brand-icon{
-    width:46px;
-    height:46px;
-    flex-basis:46px;
-    background-size:contain;
-    background-position:center;
-  }
-
-  .header-actions{
-    gap:7px;
-  }
-}
-
-/* =========================
-   PANTALLAS GRANDES
-========================= */
 
 @media(min-width:700px){
-
   .phone{
     min-height:900px;
     margin:28px 0;
@@ -1347,22 +1155,7 @@ h3{
   }
 }
 
-/* =========================
-   CELULARES PEQUEÑOS
-========================= */
-
 @media(max-width:360px){
-
-  .brand{
-    font-size:20px;
-  }
-
-  .brand-icon{
-    width:42px;
-    height:42px;
-    flex-basis:42px;
-  }
-
   .store{
     grid-template-columns:54px 1fr auto;
   }
@@ -1371,8 +1164,7 @@ h3{
     width:52px;
   }
 
-  .review-head,
-  .review-row{
+  .review-head,.review-row{
     grid-template-columns:1fr 52px 68px 27px;
   }
 }
