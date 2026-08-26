@@ -20,7 +20,7 @@ button,input,textarea{font:inherit}button{cursor:pointer}.hidden-input{display:n
 .phone{width:100%;max-width:430px;min-height:100vh;background:var(--paper);position:relative;overflow:hidden;padding-bottom:92px;box-shadow:0 0 60px rgba(10,58,93,.13)}
 .topbar{height:76px;background:var(--cream);display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid rgba(10,58,93,.08)}
 .brand{border:0;background:none;color:var(--blue);display:flex;align-items:center;gap:9px;padding:0;font-family:"Poppins",sans-serif;font-size:23px;font-weight:700;letter-spacing:-1px}
-.brand-icon{width:42px;height:46px;border-radius:12px;background-color:var(--cream);background-image:url("assets/refill-logo.png");background-size:145% auto;background-position:center top;background-repeat:no-repeat;box-shadow:0 5px 12px rgba(10,58,93,.18)}
+.brand-logo{width:96px;height:48px;object-fit:contain;display:block}
 .header-actions{display:flex;gap:8px}.tip-shortcut,.avatar{width:38px;height:38px;border:0;border-radius:50%;background:#fff;color:var(--blue);font-weight:700;box-shadow:0 4px 12px rgba(10,58,93,.09)}.tip-shortcut{color:var(--aqua);font-size:20px}
 .hero{background:var(--blue);color:#fff;padding:22px 22px 31px;border-radius:0 0 30px 30px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;background:rgba(152,190,213,.13);right:-65px;top:-65px}
 .eyebrow{color:var(--yellow);font-size:9px;font-weight:700;letter-spacing:1.5px}.eyebrow.dark{color:var(--aqua)}
