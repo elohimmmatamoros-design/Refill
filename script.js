@@ -1,11 +1,60 @@
 const STORAGE_KEY = "refill-inventory-v2";
 
+/* =========================================================
+   DATOS INICIALES
+========================================================= */
+
 const starterItems = [
-  { id: 1, icon: "??", name: "Leche entera", detail: "Sula ∑ 1 litro", qty: 2, price: 63, fresh: "Vence en 5 dÌas", level: 72 },
-  { id: 2, icon: "??", name: "Huevos", detail: "CartÛn de 12", qty: 12, price: 68, fresh: "Vence en 12 dÌas", level: 88 },
-  { id: 3, icon: "??", name: "Aguacates", detail: "Unidad", qty: 3, price: 54, fresh: "Usar pronto", level: 35 },
-  { id: 4, icon: "??", name: "Culantro", detail: "Mazo fresco", qty: 1, price: 12, fresh: "Usar en 3 dÌas", level: 28 },
-  { id: 5, icon: "??", name: "Tomates", detail: "Libra", qty: 4, price: 28, fresh: "Vence en 6 dÌas", level: 60 }
+  {
+    id: 1,
+    icon: "ü•õ",
+    name: "Leche entera",
+    detail: "Sula ¬∑ 1 litro",
+    qty: 2,
+    price: 63,
+    fresh: "Vence en 5 d√≠as",
+    level: 72
+  },
+  {
+    id: 2,
+    icon: "ü•ö",
+    name: "Huevos",
+    detail: "Cart√≥n de 12",
+    qty: 12,
+    price: 68,
+    fresh: "Vence en 12 d√≠as",
+    level: 88
+  },
+  {
+    id: 3,
+    icon: "ü•ë",
+    name: "Aguacates",
+    detail: "Unidad",
+    qty: 3,
+    price: 54,
+    fresh: "Usar pronto",
+    level: 35
+  },
+  {
+    id: 4,
+    icon: "üåø",
+    name: "Culantro",
+    detail: "Mazo fresco",
+    qty: 1,
+    price: 12,
+    fresh: "Usar en 3 d√≠as",
+    level: 28
+  },
+  {
+    id: 5,
+    icon: "üçÖ",
+    name: "Tomates",
+    detail: "Libra",
+    qty: 4,
+    price: 28,
+    fresh: "Vence en 6 d√≠as",
+    level: 60
+  }
 ];
 
 let items = loadItems();
@@ -16,46 +65,73 @@ const view = document.querySelector("#view");
 const overlay = document.querySelector("#overlay");
 const receiptInput = document.querySelector("#receiptInput");
 
+/* =========================================================
+   RECETAS
+========================================================= */
+
 const recipeCatalog = [
   {
-    icon: "??",
+    icon: "üç≥",
     name: "Omelette de aguacate",
     time: "15 min",
-    level: "F·cil",
+    level: "F√°cil",
     ingredients: ["huevos", "aguacate", "culantro"],
-    prices: { huevos: 68, aguacate: 18, culantro: 12 }
+    prices: {
+      huevos: 68,
+      aguacate: 18,
+      culantro: 12
+    }
   },
   {
-    icon: "??",
+    icon: "üçù",
     name: "Pasta cremosa con tomate",
     time: "25 min",
     level: "Intermedio",
     ingredients: ["pasta", "tomate", "crema", "leche"],
-    prices: { pasta: 38, tomate: 28, crema: 47, leche: 32 }
+    prices: {
+      pasta: 38,
+      tomate: 28,
+      crema: 47,
+      leche: 32
+    }
   },
   {
-    icon: "??",
+    icon: "ü•ó",
     name: "Ensalada fresca de pollo",
     time: "20 min",
-    level: "F·cil",
+    level: "F√°cil",
     ingredients: ["pollo", "tomate", "aguacate", "culantro"],
-    prices: { pollo: 96, tomate: 28, aguacate: 18, culantro: 12 }
+    prices: {
+      pollo: 96,
+      tomate: 28,
+      aguacate: 18,
+      culantro: 12
+    }
   },
   {
-    icon: "??",
+    icon: "üçö",
     name: "Arroz salteado con vegetales",
     time: "30 min",
-    level: "F·cil",
+    level: "F√°cil",
     ingredients: ["arroz", "huevos", "tomate", "cebolla"],
-    prices: { arroz: 43, huevos: 12, tomate: 14, cebolla: 16 }
+    prices: {
+      arroz: 43,
+      huevos: 12,
+      tomate: 14,
+      cebolla: 16
+    }
   }
 ];
+
+/* =========================================================
+   SUPERMERCADOS
+========================================================= */
 
 const stores = [
   {
     name: "La Colonia",
     logo: "assets/la-colonia.jpg",
-    time: "40ñ55 min",
+    time: "40‚Äì55 min",
     shipping: 45,
     base: 276,
     url: "https://www.lacolonia.com/"
@@ -63,7 +139,7 @@ const stores = [
   {
     name: "Diprova",
     logo: "assets/diprova.jpg",
-    time: "45ñ60 min",
+    time: "45‚Äì60 min",
     shipping: 55,
     base: 269,
     url: "https://diprova.com/"
@@ -71,7 +147,7 @@ const stores = [
   {
     name: "Walmart",
     logo: "assets/walmart.png",
-    time: "50ñ70 min",
+    time: "50‚Äì70 min",
     shipping: 59,
     base: 291,
     url: "https://www.walmartcentroamerica.com/"
@@ -79,15 +155,15 @@ const stores = [
   {
     name: "Paiz",
     logo: "assets/paiz.png",
-    time: "45ñ65 min",
+    time: "45‚Äì65 min",
     shipping: 52,
     base: 283,
     url: "https://www.walmartcentroamerica.com/"
   },
   {
-    name: "M·s x Menos",
+    name: "M√°s x Menos",
     logo: "assets/mas-x-menos.jpg",
-    time: "35ñ50 min",
+    time: "35‚Äì50 min",
     shipping: 49,
     base: 284,
     url: "https://www.walmartcentroamerica.com/",
@@ -95,9 +171,14 @@ const stores = [
   }
 ];
 
+/* =========================================================
+   STORAGE
+========================================================= */
+
 function loadItems() {
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
     return Array.isArray(saved) && saved.length
       ? saved
       : starterItems.map(item => ({ ...item }));
@@ -109,6 +190,10 @@ function loadItems() {
 function saveItems() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
 }
+
+/* =========================================================
+   UTILIDADES
+========================================================= */
 
 function escapeHTML(value) {
   return String(value ?? "")
@@ -124,11 +209,17 @@ function money(value) {
 }
 
 function total() {
-  return items.reduce((sum, item) => sum + Number(item.price || 0), 0);
+  return items.reduce(
+    (sum, item) => sum + Number(item.price || 0),
+    0
+  );
 }
 
 function units() {
-  return items.reduce((sum, item) => sum + Number(item.qty || 0), 0);
+  return items.reduce(
+    (sum, item) => sum + Number(item.qty || 0),
+    0
+  );
 }
 
 function normalize(value) {
@@ -138,35 +229,61 @@ function normalize(value) {
     .toLowerCase();
 }
 
+/* =========================================================
+   EMOJIS DE PRODUCTOS ü•õü•ëüçÖ
+========================================================= */
+
 function iconFor(name) {
   const n = normalize(name);
 
   const icons = [
-    [["leche", "crema", "yogur", "yogurt"], "??"],
-    [["huevo"], "??"],
-    [["aguacate"], "??"],
-    [["culantro", "cilantro", "perejil"], "??"],
-    [["tomate"], "??"],
-    [["arroz"], "??"],
-    [["pollo", "pechuga"], "??"],
-    [["carne", "res"], "??"],
-    [["pan", "bimbo"], "??"],
-    [["pasta", "espagueti"], "??"],
-    [["cebolla"], "??"],
-    [["papa"], "??"],
-    [["banano", "platano", "pl·tano"], "??"],
-    [["manzana"], "??"],
-    [["queso"], "??"],
-    [["cafe", "cafÈ"], "?"],
-    [["agua", "jugo", "refresco"], "??"]
+    [["leche", "crema", "yogur", "yogurt"], "ü•õ"],
+    [["huevo", "huevos"], "ü•ö"],
+    [["aguacate", "aguacates"], "ü•ë"],
+    [["culantro", "cilantro", "perejil"], "üåø"],
+    [["tomate", "tomates"], "üçÖ"],
+    [["arroz"], "üçö"],
+    [["pollo", "pechuga"], "üçó"],
+    [["carne", "res"], "ü•©"],
+    [["pan", "bimbo"], "üçû"],
+    [["pasta", "espagueti"], "üçù"],
+    [["cebolla", "cebollas"], "üßÖ"],
+    [["papa", "papas"], "ü•î"],
+    [["banano", "banana", "platano", "pl√°tano"], "üçå"],
+    [["manzana", "manzanas"], "üçé"],
+    [["queso"], "üßÄ"],
+    [["cafe", "caf√©"], "‚òï"],
+    [["agua", "jugo", "refresco"], "üßÉ"],
+    [["fresa", "fresas"], "üçì"],
+    [["naranja", "naranjas"], "üçä"],
+    [["limon", "lim√≥n"], "üçã"],
+    [["uva", "uvas"], "üçá"],
+    [["pi√±a", "pina"], "üçç"],
+    [["sandia", "sand√≠a"], "üçâ"],
+    [["zanahoria", "zanahorias"], "ü•ï"],
+    [["brocoli", "br√≥coli"], "ü•¶"],
+    [["lechuga"], "ü•¨"],
+    [["maiz", "ma√≠z"], "üåΩ"],
+    [["pepino"], "ü•í"],
+    [["ajo"], "üßÑ"],
+    [["mantequilla"], "üßà"],
+    [["galleta", "galletas"], "üç™"],
+    [["chocolate"], "üç´"],
+    [["cereal"], "ü•£"],
+    [["pescado", "tilapia", "salmon", "salm√≥n"], "üêü"],
+    [["camaron", "camar√≥n"], "üç§"]
   ];
 
   const found = icons.find(([words]) =>
     words.some(word => n.includes(normalize(word)))
   );
 
-  return found ? found[1] : "??";
+  return found ? found[1] : "üõí";
 }
+
+/* =========================================================
+   LISTA DE INVENTARIO
+========================================================= */
 
 function itemList(list, editable) {
   if (!list.length) {
@@ -180,6 +297,7 @@ function itemList(list, editable) {
 
   return `
     <div class="item-list">
+
       ${list.map(item => `
         <article class="item">
 
@@ -188,13 +306,17 @@ function itemList(list, editable) {
           </span>
 
           <div class="item-info">
-            <strong>${escapeHTML(item.name)}</strong>
+
+            <strong>
+              ${escapeHTML(item.name)}
+            </strong>
 
             <small>
-              ${escapeHTML(item.detail)} ∑ L ${money(item.price)}
+              ${escapeHTML(item.detail)} ¬∑ L ${money(item.price)}
             </small>
 
             <div class="fresh-row">
+
               <span class="${item.level < 40 ? "danger" : "ok"}">
                 ${escapeHTML(item.fresh)}
               </span>
@@ -202,7 +324,9 @@ function itemList(list, editable) {
               <span class="bar">
                 <i style="width:${Number(item.level || 75)}%"></i>
               </span>
+
             </div>
+
           </div>
 
           <div class="qty">
@@ -216,9 +340,9 @@ function itemList(list, editable) {
                 <button
                   class="edit-button"
                   data-edit="${item.id}"
-                  aria-label="Editar ${escapeHTML(item.name)}"
+                  aria-label="Editar producto"
                 >
-                  ïïï
+                  ‚Ä¢‚Ä¢‚Ä¢
                 </button>
               `
               : ""
@@ -226,19 +350,26 @@ function itemList(list, editable) {
 
         </article>
       `).join("")}
+
     </div>
   `;
 }
+
+/* =========================================================
+   HOME
+========================================================= */
 
 function home() {
   return `
     <section class="hero">
 
       <span class="eyebrow">
-        TU COCINA, M¡S INTELIGENTE
+        TU COCINA, M√ÅS INTELIGENTE
       </span>
 
-      <h1>Hola, Elo ??</h1>
+      <h1>
+        Hola, Elo üëã
+      </h1>
 
       <p>
         Convierte tu factura en un inventario editable.
@@ -246,14 +377,16 @@ function home() {
 
       <button class="scan-card scan-trigger">
 
-        <span class="scan-icon">?</span>
+        <span class="scan-icon">‚ñ£</span>
 
         <span class="scan-copy">
           <strong>Escanear factura</strong>
-          <small>Reconocimiento inteligente de productos y precios</small>
+          <small>
+            Reconocimiento inteligente de productos y precios
+          </small>
         </span>
 
-        <span class="arrow">õ</span>
+        <span class="arrow">‚Ä∫</span>
 
       </button>
 
@@ -264,68 +397,90 @@ function home() {
       <div class="summary-row">
 
         <div class="summary">
-          <span class="summary-icon">?</span>
+
+          <span class="summary-icon">‚ñ¶</span>
 
           <div>
             <b>${units()}</b>
             <small>unidades registradas</small>
           </div>
+
         </div>
 
         <div class="summary">
+
           <span class="summary-icon blue">L</span>
 
           <div>
             <b>${money(total())}</b>
             <small>valor estimado</small>
           </div>
+
         </div>
 
       </div>
 
       <div class="section-heading">
+
         <div>
           <span class="eyebrow dark">
             INVENTARIO RECIENTE
           </span>
 
-          <h2>
-            Lo que tienes en casa
-          </h2>
+          <h2>Lo que tienes en casa</h2>
         </div>
 
         <button data-go="inventory">
           Ver todo
         </button>
+
       </div>
 
       ${itemList(items.slice(0, 3), false)}
 
-      <button class="recipe-teaser" data-go="recipes">
-        <span class="spark">?</span>
+      <button
+        class="recipe-teaser"
+        data-go="recipes"
+      >
+
+        <span class="spark">‚ú¶</span>
 
         <span>
           <small>IDEAS CON LO QUE TIENES</small>
-          <strong>Recetas calculadas con tu inventario</strong>
+          <strong>
+            Recetas calculadas con tu inventario
+          </strong>
         </span>
 
-        <span>õ</span>
+        <span>‚Ä∫</span>
+
       </button>
 
-      <button class="daily-tip" data-go="tips">
-        <span>??</span>
+      <button
+        class="daily-tip"
+        data-go="tips"
+      >
+
+        <span>üåø</span>
 
         <div>
-          <small>TIP DEL DÕA</small>
-          <b>Haz que tu culantro dure hasta 2 semanas</b>
+          <small>TIP DEL D√çA</small>
+          <b>
+            Haz que tu culantro dure hasta 2 semanas
+          </b>
         </div>
 
-        <span>õ</span>
+        <span>‚Ä∫</span>
+
       </button>
 
     </section>
   `;
 }
+
+/* =========================================================
+   INVENTARIO
+========================================================= */
 
 function inventory() {
   return `
@@ -341,32 +496,37 @@ function inventory() {
           <h1>Inventario</h1>
 
           <p>
-            ${items.length} tipos de productos ∑ L ${money(total())}
+            ${items.length} tipos de productos ¬∑
+            L ${money(total())}
           </p>
         </div>
 
         <button
           class="add-button"
           data-add
-          aria-label="Agregar producto"
         >
-          +
+          Ôºã
         </button>
 
       </div>
 
       <div class="search">
-        <span>?</span>
+
+        <span>‚åï</span>
 
         <input
           id="search"
           placeholder="Buscar un producto"
         >
+
       </div>
 
       <div class="filter-row">
 
-        <button class="selected" data-filter="all">
+        <button
+          class="selected"
+          data-filter="all"
+        >
           Todos
         </button>
 
@@ -384,16 +544,25 @@ function inventory() {
         ${itemList(items, true)}
       </div>
 
-      <button class="manual-add" data-add>
-        + Agregar producto manualmente
+      <button
+        class="manual-add"
+        data-add
+      >
+        Ôºã Agregar producto manualmente
       </button>
 
     </section>
   `;
 }
 
+/* =========================================================
+   RECETAS
+========================================================= */
+
 function recipeAnalysis(recipe) {
-  const names = items.map(item => normalize(item.name));
+  const names = items.map(
+    item => normalize(item.name)
+  );
 
   const missing = recipe.ingredients.filter(
     ingredient =>
@@ -438,23 +607,27 @@ function recipeView() {
       <div class="screen-title">
 
         <div>
-          <h1>øQuÈ cocinamos?</h1>
-          <p>Ideas recalculadas con tu inventario</p>
+          <h1>¬øQu√© cocinamos? üç≥</h1>
+          <p>
+            Ideas recalculadas con tu inventario
+          </p>
         </div>
 
         <span class="ai-badge">
-          ? IA
+          ‚ú¶ IA
         </span>
 
       </div>
 
       <div class="prompt-box">
 
-        <span>?</span>
+        <span>‚ú¶</span>
 
         <div>
           <b>Personaliza las sugerencias</b>
-          <small>R·pido, saludable o con pocos ingredientes</small>
+          <small>
+            R√°pido, saludable o con pocos ingredientes
+          </small>
         </div>
 
         <button id="aiSend">
@@ -475,17 +648,19 @@ function recipeView() {
           <article class="recipe-card">
 
             <div class="recipe-art">
+
               ${recipe.icon}
 
               <span>
                 ${recipe.compatible}% compatible
               </span>
+
             </div>
 
             <div class="recipe-body">
 
               <small>
-                ${recipe.time} ∑ ${recipe.level}
+                ${recipe.time} ¬∑ ${recipe.level}
               </small>
 
               <h3>
@@ -497,11 +672,11 @@ function recipeView() {
                 ${
                   recipe.missing.length
                     ? `
-                      + Faltan ${recipe.missing.length}:
+                      Ôºã Faltan ${recipe.missing.length}:
                       ${escapeHTML(recipe.missing.join(", "))}
-                      ∑ aprox. L ${money(recipe.cost)}
+                      ¬∑ aprox. L ${money(recipe.cost)}
                     `
-                    : "? Tienes todo"
+                    : "‚úì Tienes todo"
                 }
 
               </p>
@@ -512,7 +687,7 @@ function recipeView() {
                     <button
                       data-recipe="${escapeHTML(recipe.name)}"
                     >
-                      Comparar lo que falta ?
+                      Comparar lo que falta ‚Üí
                     </button>
                   `
                   : ""
@@ -529,16 +704,22 @@ function recipeView() {
   `;
 }
 
+/* =========================================================
+   DELIVERY
+========================================================= */
+
 function delivery() {
   const originalRecipe = selectedRecipe
-    ? recipeCatalog.find(r => r.name === selectedRecipe) || recipeCatalog[1]
+    ? recipeCatalog.find(
+        recipe => recipe.name === selectedRecipe
+      ) || recipeCatalog[1]
     : recipeCatalog[1];
 
   const recipe = recipeAnalysis(originalRecipe);
 
   const missingText = recipe.missing.length
-    ? recipe.missing.join(" ∑ ")
-    : "Tu inventario ya est· completo";
+    ? recipe.missing.join(" ¬∑ ")
+    : "Tu inventario ya est√° completo";
 
   const estimate = recipe.cost || 78;
 
@@ -552,8 +733,7 @@ function delivery() {
       <div class="screen-title">
 
         <div>
-          <h1>Completa tu receta</h1>
-
+          <h1>Completa tu receta üõí</h1>
           <p>
             Compara precios estimados y elige una tienda
           </p>
@@ -567,11 +747,12 @@ function delivery() {
 
       <div class="shopping-summary">
 
-        <span>???</span>
+        <span>üõçÔ∏è</span>
 
         <div>
           <b>
-            ${recipe.missing.length} ingredientes por conseguir
+            ${recipe.missing.length}
+            ingredientes por conseguir
           </b>
 
           <small>
@@ -587,13 +768,13 @@ function delivery() {
 
       <div class="location">
 
-        <span>?</span>
+        <span>üìç</span>
 
         <div>
           <small>ENTREGAR EN</small>
 
           <b id="deliveryAddress">
-            Tegucigalpa, Francisco Moraz·n
+            Tegucigalpa, Francisco Moraz√°n
           </b>
         </div>
 
@@ -610,7 +791,7 @@ function delivery() {
         </h2>
 
         <small>
-          Referencia de productos + envÌo
+          Referencia de productos + env√≠o
         </small>
 
       </div>
@@ -627,25 +808,34 @@ function delivery() {
             >
 
             <div>
-              <b>${escapeHTML(store.name)}</b>
+
+              <b>
+                ${escapeHTML(store.name)}
+              </b>
 
               <small>
-                ${store.time} ∑ EnvÌo L ${store.shipping}
+                ${store.time} ¬∑
+                Env√≠o L ${store.shipping}
               </small>
 
               ${
                 store.regional
                   ? `
                     <small class="regional">
-                      OpciÛn regional ∑ Costa Rica
+                      Opci√≥n regional ¬∑ Costa Rica
                     </small>
                   `
                   : ""
               }
+
             </div>
 
             <strong>
-              L ${money(store.base + estimate + index * 3)}
+              L ${money(
+                store.base +
+                estimate +
+                index * 3
+              )}
             </strong>
 
             <button
@@ -665,30 +855,34 @@ function delivery() {
   `;
 }
 
+/* =========================================================
+   TIPS
+========================================================= */
+
 function tips() {
   const more = [
     [
-      "??",
+      "ü•ë",
       "Aguacate sin oscurecerse",
-      "AÒade unas gotas de limÛn y c˙brelo sin dejar aire.",
-      "2ñ3 dÌas"
+      "A√±ade unas gotas de lim√≥n y c√∫brelo sin dejar aire.",
+      "2‚Äì3 d√≠as"
     ],
     [
-      "??",
+      "üçÖ",
       "Tomates con mejor sabor",
-      "DÈjalos fuera del refrigerador con el tallo hacia abajo.",
-      "5ñ7 dÌas"
+      "D√©jalos fuera del refrigerador con el tallo hacia abajo.",
+      "5‚Äì7 d√≠as"
     ],
     [
-      "??",
+      "ü•¨",
       "Hojas verdes crujientes",
-      "EnvuÈlvelas en papel absorbente dentro de un recipiente.",
-      "7ñ10 dÌas"
+      "Envu√©lvelas en papel absorbente dentro de un recipiente.",
+      "7‚Äì10 d√≠as"
     ],
     [
-      "??",
-      "Pan fresco por m·s tiempo",
-      "CongÈlalo en porciones y tuÈstalo directamente al usarlo.",
+      "üçû",
+      "Pan fresco por m√°s tiempo",
+      "Cong√©lalo en porciones y tu√©stalo directamente al usarlo.",
       "Hasta 3 meses"
     ]
   ];
@@ -703,15 +897,15 @@ function tips() {
       <div class="screen-title">
 
         <div>
-          <h1>Conserva mejor</h1>
+          <h1>Conserva mejor üåø</h1>
 
           <p>
-            Consejos pr·cticos para tus alimentos
+            Consejos pr√°cticos para tus alimentos
           </p>
         </div>
 
         <span class="leaf-badge">
-          ?
+          üå±
         </span>
 
       </div>
@@ -723,24 +917,26 @@ function tips() {
         </small>
 
         <h2>
-          Tu culantro necesita atenciÛn
+          Tu culantro necesita atenci√≥n
         </h2>
 
         <p>
-          Corta apenas la base, ponlo en un vaso con 2 cm de agua
-          y c˙brelo con una bolsa floja antes de refrigerar.
-          Cambia el agua cada dos dÌas.
+          Corta apenas la base, ponlo en un vaso con
+          2 cm de agua y c√∫brelo con una bolsa floja
+          antes de refrigerar. Cambia el agua cada dos d√≠as.
         </p>
 
         <div class="tip-result">
           <b>Resultado</b>
-          <span>Puede durar hasta 2 semanas</span>
+          <span>
+            Puede durar hasta 2 semanas ‚ú®
+          </span>
         </div>
 
       </div>
 
       <h2 class="more-title">
-        M·s consejos para ti
+        M√°s consejos para ti
       </h2>
 
       <div class="tips-list">
@@ -767,6 +963,10 @@ function tips() {
   `;
 }
 
+/* =========================================================
+   RENDER
+========================================================= */
+
 function render() {
   const pages = {
     home,
@@ -792,34 +992,45 @@ function render() {
 
 function go(tab) {
   currentTab = tab;
+
   window.scrollTo(0, 0);
+
   render();
 }
+
+/* =========================================================
+   EVENTOS
+========================================================= */
 
 function bindView() {
   document
     .querySelectorAll("[data-go]")
     .forEach(el => {
-      el.onclick = () => go(el.dataset.go);
+      el.onclick = () =>
+        go(el.dataset.go);
     });
 
   document
     .querySelectorAll(".scan-trigger")
     .forEach(el => {
-      el.onclick = () => receiptInput.click();
+      el.onclick = () =>
+        receiptInput.click();
     });
 
   document
     .querySelectorAll("[data-add]")
     .forEach(el => {
-      el.onclick = () => openEditor();
+      el.onclick = () =>
+        openEditor();
     });
 
   document
     .querySelectorAll("[data-edit]")
     .forEach(el => {
       el.onclick = () =>
-        openEditor(Number(el.dataset.edit));
+        openEditor(
+          Number(el.dataset.edit)
+        );
     });
 
   document
@@ -841,14 +1052,16 @@ function bindView() {
         );
     });
 
-  const search = document.querySelector("#search");
+  const search =
+    document.querySelector("#search");
 
   if (search) {
     search.oninput = () => {
       updateInventoryList(
         items.filter(item =>
-          normalize(item.name)
-            .includes(normalize(search.value))
+          normalize(item.name).includes(
+            normalize(search.value)
+          )
         )
       );
     };
@@ -869,15 +1082,22 @@ function bindView() {
 
         let filtered = items;
 
-        if (button.dataset.filter === "soon") {
+        if (
+          button.dataset.filter === "soon"
+        ) {
           filtered = items.filter(
-            item => Number(item.level) < 40
+            item =>
+              Number(item.level) < 40
           );
         }
 
-        if (button.dataset.filter === "scan") {
+        if (
+          button.dataset.filter === "scan"
+        ) {
           filtered = items.filter(
-            item => item.source === "Factura escaneada"
+            item =>
+              item.source ===
+              "Factura escaneada"
           );
         }
 
@@ -885,40 +1105,59 @@ function bindView() {
       };
     });
 
-  const ai = document.querySelector("#aiSend");
+  const ai =
+    document.querySelector("#aiSend");
 
   if (ai) {
     ai.onclick = () => {
-      recipeCatalog.push(recipeCatalog.shift());
+      recipeCatalog.push(
+        recipeCatalog.shift()
+      );
+
       render();
-      showToast("Sugerencias actualizadas");
+
+      showToast(
+        "Sugerencias actualizadas ‚ú®"
+      );
     };
   }
 
-  const location = document.querySelector("#changeLocation");
+  const location =
+    document.querySelector("#changeLocation");
 
   if (location) {
-    location.onclick = changeLocation;
+    location.onclick =
+      changeLocation;
   }
 }
 
 function updateInventoryList(list) {
-  const holder = document.querySelector("#inventoryList");
+  const holder =
+    document.querySelector("#inventoryList");
 
   if (!holder) return;
 
-  holder.innerHTML = itemList(list, true);
+  holder.innerHTML =
+    itemList(list, true);
 
   holder
     .querySelectorAll("[data-edit]")
     .forEach(el => {
       el.onclick = () =>
-        openEditor(Number(el.dataset.edit));
+        openEditor(
+          Number(el.dataset.edit)
+        );
     });
 }
 
+/* =========================================================
+   SUPERMERCADOS
+========================================================= */
+
 function openStore(name, url) {
-  showToast("Abriendo la tienda de " + name);
+  showToast(
+    "Abriendo " + name + " üõí"
+  );
 
   setTimeout(() => {
     window.open(
@@ -931,150 +1170,316 @@ function openStore(name, url) {
 
 function changeLocation() {
   const current =
-    document.querySelector("#deliveryAddress")?.textContent || "";
+    document
+      .querySelector("#deliveryAddress")
+      ?.textContent || "";
 
-  const next = window.prompt(
-    "øDÛnde deseas recibir tu compra?",
-    current
-  );
+  const next =
+    window.prompt(
+      "¬øD√≥nde deseas recibir tu compra?",
+      current
+    );
 
-  if (next && next.trim()) {
-    document.querySelector("#deliveryAddress").textContent =
-      next.trim();
+  if (
+    next &&
+    next.trim()
+  ) {
+    document
+      .querySelector("#deliveryAddress")
+      .textContent =
+        next.trim();
 
-    showToast("UbicaciÛn actualizada");
+    showToast(
+      "Ubicaci√≥n actualizada üìç"
+    );
   }
 }
 
 /* =========================================================
-   PREPROCESAMIENTO DE IMAGEN
+   PREPROCESAMIENTO OCR V3
 ========================================================= */
 
-async function preprocessReceipt(file) {
-  return new Promise((resolve, reject) => {
-    const image = new Image();
-    const objectURL = URL.createObjectURL(file);
+async function createProcessedReceipt(
+  file,
+  mode = "soft"
+) {
+  return new Promise(
+    (resolve, reject) => {
 
-    image.onload = () => {
-      try {
-        const maxWidth = 1800;
+      const image =
+        new Image();
 
-        let scale = 2;
+      const objectURL =
+        URL.createObjectURL(file);
 
-        if (image.naturalWidth * scale > maxWidth) {
-          scale = maxWidth / image.naturalWidth;
-        }
+      image.onload = () => {
+        try {
+          const desiredWidth =
+            Math.min(
+              1800,
+              Math.max(
+                1400,
+                image.naturalWidth * 1.8
+              )
+            );
 
-        const targetWidth = Math.round(
-          image.naturalWidth * scale
-        );
+          const scale =
+            desiredWidth /
+            image.naturalWidth;
 
-        const targetHeight = Math.round(
-          image.naturalHeight * scale
-        );
+          const width =
+            Math.round(
+              image.naturalWidth *
+              scale
+            );
 
-        const canvas = document.createElement("canvas");
+          const height =
+            Math.round(
+              image.naturalHeight *
+              scale
+            );
 
-        canvas.width = targetWidth;
-        canvas.height = targetHeight;
+          const canvas =
+            document.createElement("canvas");
 
-        const ctx = canvas.getContext(
-          "2d",
-          { willReadFrequently: true }
-        );
+          canvas.width =
+            width;
 
-        ctx.drawImage(
-          image,
-          0,
-          0,
-          targetWidth,
-          targetHeight
-        );
+          canvas.height =
+            height;
 
-        const imageData = ctx.getImageData(
-          0,
-          0,
-          canvas.width,
-          canvas.height
-        );
+          const ctx =
+            canvas.getContext(
+              "2d",
+              {
+                willReadFrequently: true
+              }
+            );
 
-        const data = imageData.data;
+          ctx.fillStyle =
+            "#ffffff";
 
-        for (let i = 0; i < data.length; i += 4) {
-          const r = data[i];
-          const g = data[i + 1];
-          const b = data[i + 2];
-
-          let gray =
-            0.299 * r +
-            0.587 * g +
-            0.114 * b;
-
-          gray = (gray - 128) * 1.45 + 128;
-
-          gray = Math.max(
+          ctx.fillRect(
             0,
-            Math.min(255, gray)
+            0,
+            width,
+            height
           );
 
-          if (gray > 215) {
-            gray = 255;
-          }
+          ctx.drawImage(
+            image,
+            0,
+            0,
+            width,
+            height
+          );
 
-          if (gray < 120) {
-            gray = Math.max(
+          const imageData =
+            ctx.getImageData(
               0,
-              gray - 20
+              0,
+              width,
+              height
             );
+
+          const data =
+            imageData.data;
+
+          for (
+            let i = 0;
+            i < data.length;
+            i += 4
+          ) {
+            const red =
+              data[i];
+
+            const green =
+              data[i + 1];
+
+            const blue =
+              data[i + 2];
+
+            let gray =
+              0.299 * red +
+              0.587 * green +
+              0.114 * blue;
+
+            if (
+              mode === "soft"
+            ) {
+              gray =
+                (gray - 128) *
+                1.3 +
+                128;
+
+              if (gray > 225) {
+                gray = 255;
+              }
+
+              if (gray < 80) {
+                gray = 35;
+              }
+            }
+
+            if (
+              mode === "binary"
+            ) {
+              gray =
+                gray < 175
+                  ? 0
+                  : 255;
+            }
+
+            gray =
+              Math.max(
+                0,
+                Math.min(
+                  255,
+                  gray
+                )
+              );
+
+            data[i] =
+              gray;
+
+            data[i + 1] =
+              gray;
+
+            data[i + 2] =
+              gray;
           }
 
-          data[i] = gray;
-          data[i + 1] = gray;
-          data[i + 2] = gray;
+          ctx.putImageData(
+            imageData,
+            0,
+            0
+          );
+
+          canvas.toBlob(
+            blob => {
+              URL.revokeObjectURL(
+                objectURL
+              );
+
+              if (blob) {
+                resolve(blob);
+              } else {
+                resolve(file);
+              }
+            },
+            "image/png"
+          );
+
+        } catch (error) {
+          URL.revokeObjectURL(
+            objectURL
+          );
+
+          reject(error);
         }
+      };
 
-        ctx.putImageData(
-          imageData,
-          0,
-          0
+      image.onerror = () => {
+        URL.revokeObjectURL(
+          objectURL
         );
 
-        canvas.toBlob(
-          blob => {
-            URL.revokeObjectURL(objectURL);
-
-            if (blob) {
-              resolve(blob);
-            } else {
-              resolve(file);
-            }
-          },
-          "image/jpeg",
-          0.95
+        reject(
+          new Error(
+            "No se pudo preparar la imagen."
+          )
         );
+      };
 
-      } catch (error) {
-        URL.revokeObjectURL(objectURL);
-        reject(error);
-      }
-    };
-
-    image.onerror = () => {
-      URL.revokeObjectURL(objectURL);
-
-      reject(
-        new Error(
-          "No se pudo preparar la imagen."
-        )
-      );
-    };
-
-    image.src = objectURL;
-  });
+      image.src =
+        objectURL;
+    }
+  );
 }
 
 /* =========================================================
-   OCR
+   EJECUTAR OCR
+========================================================= */
+
+async function runOCR(
+  image,
+  label,
+  progressStart,
+  progressEnd
+) {
+  updateScanningText(label);
+
+  const result =
+    await window.Tesseract.recognize(
+      image,
+      "spa+eng",
+      {
+        logger: message => {
+          const originalProgress =
+            Number(
+              message.progress || 0
+            );
+
+          const mapped =
+            progressStart +
+            originalProgress *
+            (
+              progressEnd -
+              progressStart
+            );
+
+          updateOCRProgressCustom(
+            message.status,
+            mapped
+          );
+        }
+      }
+    );
+
+  return {
+    text:
+      result?.data?.text || "",
+
+    confidence:
+      Math.round(
+        result?.data?.confidence || 0
+      )
+  };
+}
+
+function scoreOCRResult(result) {
+  const products =
+    parseReceipt(result.text);
+
+  const priceCount =
+    (
+      result.text.match(
+        /\d+[.,]\d{2}/g
+      ) || []
+    ).length;
+
+  const readableWords =
+    (
+      result.text.match(
+        /[A-Za-z√Å√â√ç√ì√ö√ë√°√©√≠√≥√∫√±]{4,}/g
+      ) || []
+    ).length;
+
+  const score =
+    result.confidence +
+    products.length * 15 +
+    Math.min(priceCount, 15) * 2 +
+    Math.min(readableWords, 30) * 0.5;
+
+  return {
+    ...result,
+    products,
+    score
+  };
+}
+
+/* =========================================================
+   ESCANEAR FACTURA
 ========================================================= */
 
 async function scanReceipt(file) {
@@ -1088,59 +1493,84 @@ async function scanReceipt(file) {
   try {
     if (!window.Tesseract) {
       throw new Error(
-        "El mÛdulo OCR no pudo cargarse. Revisa tu conexiÛn."
+        "El m√≥dulo OCR no pudo cargarse."
       );
     }
 
     updateScanningText(
-      "Mejorando contraste y claridad de la facturaÖ"
+      "Preparando la factura‚Ä¶ üßæ"
     );
 
-    let processedFile = file;
-
-    try {
-      processedFile =
-        await preprocessReceipt(file);
-    } catch (error) {
-      console.warn(
-        "No se pudo preprocesar la factura:",
-        error
+    const softImage =
+      await createProcessedReceipt(
+        file,
+        "soft"
       );
-    }
+
+    const binaryImage =
+      await createProcessedReceipt(
+        file,
+        "binary"
+      );
+
+    const firstOCR =
+      await runOCR(
+        softImage,
+        "Primera lectura: analizando productos‚Ä¶",
+        0.08,
+        0.48
+      );
+
+    const secondOCR =
+      await runOCR(
+        binaryImage,
+        "Segunda lectura: verificando precios‚Ä¶",
+        0.50,
+        0.92
+      );
 
     updateScanningText(
-      "Leyendo productos y preciosÖ"
+      "Comparando resultados‚Ä¶ ‚ú®"
     );
 
-    const result =
-      await window.Tesseract.recognize(
-        processedFile,
-        "spa+eng",
-        {
-          logger: message =>
-            updateOCRProgress(message)
-        }
-      );
+    const candidate1 =
+      scoreOCRResult(firstOCR);
 
-    const rawText =
-      result?.data?.text || "";
+    const candidate2 =
+      scoreOCRResult(secondOCR);
+
+    const best =
+      candidate2.score >
+      candidate1.score
+        ? candidate2
+        : candidate1;
 
     console.log(
-      "TEXTO OCR:",
-      rawText
+      "OCR SUAVE:",
+      candidate1
     );
 
-    const products =
-      parseReceipt(rawText);
+    console.log(
+      "OCR BINARIO:",
+      candidate2
+    );
+
+    console.log(
+      "OCR ELEGIDO:",
+      best
+    );
+
+    updateOCRProgressCustom(
+      "complete",
+      1
+    );
 
     closeOverlay();
 
     openReceiptReview(
-      products,
-      rawText,
-      Math.round(
-        result?.data?.confidence || 0
-      )
+      best.products,
+      best.text,
+      best.confidence
     );
 
   } catch (error) {
@@ -1157,13 +1587,21 @@ async function scanReceipt(file) {
     );
 
   } finally {
-    URL.revokeObjectURL(previewUrl);
+    URL.revokeObjectURL(
+      previewUrl
+    );
+
     receiptInput.value = "";
   }
 }
 
+/* =========================================================
+   UI DEL ESC√ÅNER
+========================================================= */
+
 function showScanning(previewUrl) {
-  overlay.className = "overlay";
+  overlay.className =
+    "overlay";
 
   overlay.innerHTML = `
     <div class="receipt-preview">
@@ -1178,11 +1616,11 @@ function showScanning(previewUrl) {
     </div>
 
     <h3>
-      Analizando tu facturaÖ
+      Analizando tu factura‚Ä¶ üßæ
     </h3>
 
     <p id="ocrStatus">
-      Preparando la imagen para mejorar la lectura.
+      Preparando una lectura m√°s precisa.
     </p>
 
     <div class="progress">
@@ -1196,49 +1634,45 @@ function updateScanningText(text) {
     document.querySelector("#ocrStatus");
 
   if (status) {
-    status.textContent = text;
+    status.textContent =
+      text;
   }
 }
 
-function updateOCRProgress(message) {
+function updateOCRProgressCustom(
+  statusName,
+  progressValue
+) {
   const bar =
     document.querySelector("#ocrBar");
 
   const status =
     document.querySelector("#ocrStatus");
 
-  if (!bar || !status) return;
+  if (!bar) return;
 
-  const progress = Math.max(
-    4,
-    Math.round(
-      Number(message.progress || 0) * 100
-    )
-  );
+  const percentage =
+    Math.max(
+      4,
+      Math.min(
+        100,
+        Math.round(
+          Number(progressValue) *
+          100
+        )
+      )
+    );
 
   bar.style.width =
-    progress + "%";
+    percentage + "%";
 
-  const labels = {
-    "loading tesseract core":
-      "Cargando el lector inteligenteÖ",
-
-    "initializing tesseract":
-      "Preparando el an·lisisÖ",
-
-    "loading language traineddata":
-      "Cargando idioma espaÒolÖ",
-
-    "initializing api":
-      "Afinando el reconocimientoÖ",
-
-    "recognizing text":
-      "Leyendo productos, cantidades y preciosÖ"
-  };
-
-  status.textContent =
-    labels[message.status] ||
-    "Procesando la facturaÖ";
+  if (
+    status &&
+    statusName === "complete"
+  ) {
+    status.textContent =
+      "Lectura completada ‚úì";
+  }
 }
 
 /* =========================================================
@@ -1248,7 +1682,10 @@ function updateOCRProgress(message) {
 function parseMoney(value) {
   let cleaned =
     String(value || "")
-      .replace(/[^\d.,]/g, "");
+      .replace(
+        /[^\d.,]/g,
+        ""
+      );
 
   if (
     cleaned.includes(".") &&
@@ -1260,14 +1697,26 @@ function parseMoney(value) {
     const lastComma =
       cleaned.lastIndexOf(",");
 
-    if (lastDot > lastComma) {
+    if (
+      lastDot >
+      lastComma
+    ) {
       cleaned =
-        cleaned.replaceAll(",", "");
+        cleaned.replaceAll(
+          ",",
+          ""
+        );
     } else {
       cleaned =
         cleaned
-          .replaceAll(".", "")
-          .replace(",", ".");
+          .replaceAll(
+            ".",
+            ""
+          )
+          .replace(
+            ",",
+            "."
+          );
     }
 
   } else if (
@@ -1275,32 +1724,55 @@ function parseMoney(value) {
     /,\d{2}$/.test(cleaned)
   ) {
     cleaned =
-      cleaned.replace(",", ".");
+      cleaned.replace(
+        ",",
+        "."
+      );
+
   } else {
     cleaned =
-      cleaned.replaceAll(",", "");
+      cleaned.replaceAll(
+        ",",
+        ""
+      );
   }
 
-  return Number.parseFloat(cleaned) || 0;
+  return (
+    Number.parseFloat(cleaned) ||
+    0
+  );
 }
 
 /* =========================================================
-   LIMPIAR NOMBRE
+   LIMPIAR PRODUCTO
 ========================================================= */
 
 function cleanProductName(value) {
   let name =
     String(value || "");
 
-  name = name
-    .replace(/^[#*.:/\\\-\s]+/, "")
-    .replace(/\b(?:LPS?|HNL)\b/gi, "")
-    .replace(/^\d{5,14}\s+/, "")
-    .replace(/\s{2,}/g, " ")
-    .trim();
+  name =
+    name
+      .replace(
+        /^[#*.:/\\\-\s]+/,
+        ""
+      )
+      .replace(
+        /\b(?:LPS?|HNL)\b/gi,
+        ""
+      )
+      .replace(
+        /^\d{5,14}\s+/,
+        ""
+      )
+      .replace(
+        /\s{2,}/g,
+        " "
+      )
+      .trim();
 
   if (
-    !/[A-Za-z¡…Õ”⁄—·ÈÌÛ˙Ò]/.test(name)
+    !/[A-Za-z√Å√â√ç√ì√ö√ë√°√©√≠√≥√∫√±]/.test(name)
   ) {
     return "";
   }
@@ -1308,8 +1780,9 @@ function cleanProductName(value) {
   return name
     .toLowerCase()
     .replace(
-      /(^|\s)[a-z·ÈÌÛ˙Ò]/g,
-      char => char.toUpperCase()
+      /(^|\s)[a-z√°√©√≠√≥√∫√±]/g,
+      char =>
+        char.toUpperCase()
     );
 }
 
@@ -1318,46 +1791,48 @@ function cleanProductName(value) {
 ========================================================= */
 
 function detectStore(text) {
-  const normalized =
+  const n =
     normalize(text);
 
   if (
-    normalized.includes("la colonia") ||
-    normalized.includes("supermercados la colonia")
+    n.includes("la colonia") ||
+    n.includes(
+      "supermercados la colonia"
+    )
   ) {
     return "La Colonia";
   }
 
   if (
-    normalized.includes("walmart")
+    n.includes("walmart")
   ) {
     return "Walmart";
   }
 
   if (
-    normalized.includes("paiz")
+    n.includes("paiz")
   ) {
     return "Paiz";
   }
 
   if (
-    normalized.includes("diprova")
+    n.includes("diprova")
   ) {
     return "Diprova";
   }
 
   if (
-    normalized.includes("mas x menos") ||
-    normalized.includes("mas por menos")
+    n.includes("mas x menos") ||
+    n.includes("mas por menos")
   ) {
-    return "M·s x Menos";
+    return "M√°s x Menos";
   }
 
   return "Supermercado";
 }
 
 /* =========================================================
-   PARSER MEJORADO
+   PARSER DE FACTURA
 ========================================================= */
 
 function parseReceipt(text) {
@@ -1365,97 +1840,117 @@ function parseReceipt(text) {
     detectStore(text);
 
   const ignored =
-    /\b(subtotal|impuesto|isv|total a pagar|gran total|cambio|efectivo|tarjeta|rtn|cai|factura|fecha|hora|cajero|gracias|descuento|ahorro|vuelto|saldo|telefono|tel\.?|cliente|autorizacion|autorizaciÛn|referencia|visa|mastercard|nit|orden|tienda|sucursal|direccion|direcciÛn|precio unit|descripcion|descripciÛn)\b/i;
+    /\b(subtotal|impuesto|isv|total a pagar|gran total|cambio|efectivo|tarjeta|rtn|cai|factura|fecha|hora|cajero|gracias|descuento|ahorro|vuelto|saldo|telefono|cliente|autorizacion|referencia|visa|mastercard|nit|orden|tienda|sucursal|direccion|precio unit|descripcion)\b/i;
 
-  let lines = String(text || "")
-    .split(/\r?\n/)
-    .map(line =>
-      line
-        .replace(/[|_]/g, " ")
-        .replace(/\s{2,}/g, " ")
-        .trim()
-    )
-    .filter(Boolean);
+  let lines =
+    String(text || "")
+      .split(/\r?\n/)
+      .map(line =>
+        line
+          .replace(
+            /[|_]/g,
+            " "
+          )
+          .replace(
+            /\s{2,}/g,
+            " "
+          )
+          .trim()
+      )
+      .filter(Boolean);
 
   const products = [];
 
-  for (let i = 0; i < lines.length; i++) {
-
+  for (
+    let i = 0;
+    i < lines.length;
+    i++
+  ) {
     let line =
       lines[i];
 
-    if (line.length < 3) {
-      continue;
-    }
-
-    if (ignored.test(line)) {
-      continue;
-    }
-
-    let priceMatches = [
-      ...line.matchAll(
-        /(?:L(?:PS?)?\.?\s*)?(\d{1,5}[.,]\d{2})/gi
-      )
-    ];
-
-    /*
-      Si una lÌnea parece nombre y la siguiente
-      contiene los precios, las unimos.
-    */
-
     if (
-      !priceMatches.length &&
-      i < lines.length - 1 &&
-      /[A-Za-z¡…Õ”⁄—·ÈÌÛ˙Ò]/.test(line)
+      line.length < 3 ||
+      ignored.test(line)
     ) {
+      continue;
+    }
 
-      const nextLine =
-        lines[i + 1];
-
-      const nextPrices = [
-        ...nextLine.matchAll(
+    let priceMatches =
+      [
+        ...line.matchAll(
           /(?:L(?:PS?)?\.?\s*)?(\d{1,5}[.,]\d{2})/gi
         )
       ];
 
-      if (nextPrices.length) {
-        line =
-          line + " " + nextLine;
+    if (
+      !priceMatches.length &&
+      i < lines.length - 1 &&
+      /[A-Za-z√Å√â√ç√ì√ö√ë√°√©√≠√≥√∫√±]/.test(line)
+    ) {
+      const nextLine =
+        lines[i + 1];
 
-        i++;
-
-        priceMatches = [
-          ...line.matchAll(
+      const nextPrices =
+        [
+          ...nextLine.matchAll(
             /(?:L(?:PS?)?\.?\s*)?(\d{1,5}[.,]\d{2})/gi
           )
         ];
+
+      if (
+        nextPrices.length
+      ) {
+        line =
+          line +
+          " " +
+          nextLine;
+
+        i++;
+
+        priceMatches =
+          [
+            ...line.matchAll(
+              /(?:L(?:PS?)?\.?\s*)?(\d{1,5}[.,]\d{2})/gi
+            )
+          ];
       }
     }
 
-    if (!priceMatches.length) {
+    if (
+      !priceMatches.length
+    ) {
       continue;
     }
 
     const prices =
       priceMatches
         .map(match =>
-          parseMoney(match[1])
+          parseMoney(
+            match[1]
+          )
         )
         .filter(price =>
           price > 0 &&
           price < 10000
         );
 
-    if (!prices.length) {
+    if (
+      !prices.length
+    ) {
       continue;
     }
 
     const totalPrice =
-      prices[prices.length - 1];
+      prices[
+        prices.length - 1
+      ];
 
     const unitPrice =
       prices.length >= 2
-        ? prices[prices.length - 2]
+        ? prices[
+            prices.length - 2
+          ]
         : totalPrice;
 
     const firstPriceIndex =
@@ -1469,25 +1964,32 @@ function parseReceipt(text) {
         )
         .trim();
 
-    beforePrice = beforePrice
-      .replace(/^\d{5,14}\s+/, "")
-      .replace(/^[#*.:/\-\s]+/, "")
-      .trim();
+    beforePrice =
+      beforePrice
+        .replace(
+          /^\d{5,14}\s+/,
+          ""
+        )
+        .replace(
+          /^[#*.:/\-\s]+/,
+          ""
+        )
+        .trim();
 
     let qty = 1;
-
-    /*
-      Detectar cantidad al inicio.
-    */
 
     const qtyMatch =
       beforePrice.match(
         /^(\d+(?:[.,]\d+)?)\s+(.+)/
       );
 
-    if (qtyMatch) {
+    if (
+      qtyMatch
+    ) {
       const possibleQty =
-        parseMoney(qtyMatch[1]);
+        parseMoney(
+          qtyMatch[1]
+        );
 
       if (
         possibleQty > 0 &&
@@ -1497,21 +1999,19 @@ function parseReceipt(text) {
           possibleQty;
 
         beforePrice =
-          qtyMatch[2].trim();
+          qtyMatch[2]
+            .trim();
       }
     }
-
-    /*
-      Detectar formato:
-      2 x 25.00 Producto
-    */
 
     const multiplication =
       beforePrice.match(
         /^(\d+(?:[.,]\d+)?)\s*[xX*@]\s*(?:L(?:PS?)?\.?\s*)?[\d.,]+\s*(.*)$/i
       );
 
-    if (multiplication) {
+    if (
+      multiplication
+    ) {
       qty =
         Math.max(
           1,
@@ -1521,13 +2021,18 @@ function parseReceipt(text) {
         );
 
       beforePrice =
-        multiplication[2].trim();
+        multiplication[2]
+          .trim();
     }
 
-    let name =
-      cleanProductName(beforePrice);
+    const name =
+      cleanProductName(
+        beforePrice
+      );
 
-    if (!name) {
+    if (
+      !name
+    ) {
       continue;
     }
 
@@ -1552,7 +2057,9 @@ function parseReceipt(text) {
 
     if (
       badWords.some(word =>
-        normalizedName.includes(word)
+        normalizedName.includes(
+          word
+        )
       )
     ) {
       continue;
@@ -1560,22 +2067,12 @@ function parseReceipt(text) {
 
     const letters =
       name.match(
-        /[A-Za-z¡…Õ”⁄—·ÈÌÛ˙Ò]/g
+        /[A-Za-z√Å√â√ç√ì√ö√ë√°√©√≠√≥√∫√±]/g
       );
 
     if (
       !letters ||
-      letters.length < 3
-    ) {
-      continue;
-    }
-
-    const digits =
-      name.match(/\d/g)?.length || 0;
-
-    if (
-      digits >
-      letters.length * 2
+      letters.length < 4
     ) {
       continue;
     }
@@ -1583,37 +2080,49 @@ function parseReceipt(text) {
     products.push({
       name,
       qty,
-      price: totalPrice,
+      price:
+        totalPrice,
       unitPrice,
-      icon: iconFor(name),
-      store: detectedStore
+      icon:
+        iconFor(name),
+      store:
+        detectedStore
     });
   }
 
   const unique = [];
 
-  products.forEach(product => {
+  products.forEach(
+    product => {
+      const duplicate =
+        unique.find(
+          item =>
+            normalize(item.name) ===
+            normalize(product.name) &&
+            Math.abs(
+              Number(item.price) -
+              Number(product.price)
+            ) < 0.01
+        );
 
-    const duplicate =
-      unique.find(item =>
-        normalize(item.name) ===
-        normalize(product.name) &&
-        Math.abs(
-          Number(item.price) -
-          Number(product.price)
-        ) < 0.01
-      );
-
-    if (!duplicate) {
-      unique.push(product);
+      if (
+        !duplicate
+      ) {
+        unique.push(
+          product
+        );
+      }
     }
-  });
+  );
 
-  return unique.slice(0, 30);
+  return unique.slice(
+    0,
+    30
+  );
 }
 
 /* =========================================================
-   FILAS DE REVISI”N
+   REVISI√ìN DE FACTURA
 ========================================================= */
 
 function reviewRow(product = {}) {
@@ -1624,7 +2133,6 @@ function reviewRow(product = {}) {
         data-field="name"
         value="${escapeHTML(product.name || "")}"
         placeholder="Producto"
-        aria-label="Producto"
       >
 
       <input
@@ -1633,7 +2141,6 @@ function reviewRow(product = {}) {
         min="0.01"
         step="0.01"
         value="${Number(product.qty || 1)}"
-        aria-label="Cantidad"
       >
 
       <input
@@ -1647,15 +2154,13 @@ function reviewRow(product = {}) {
             : ""
         }"
         placeholder="0.00"
-        aria-label="Precio"
       >
 
       <button
         type="button"
         class="remove-row"
-        aria-label="Quitar producto"
       >
-        ◊
+        √ó
       </button>
 
     </div>
@@ -1692,49 +2197,64 @@ function openReceiptReview(
         class="modal-x"
         id="closeModal"
       >
-        ◊
+        √ó
       </button>
 
       <span class="eyebrow dark">
-        REVISI”N DE FACTURA
+        REVISI√ìN DE FACTURA üßæ
       </span>
 
       <h2>
         ${
           products.length
-            ? `Encontramos ${products.length} productos`
-            : "Completa los productos"
+            ? `Encontramos ${products.length} productos üéâ`
+            : "Revisa la factura"
         }
       </h2>
 
       <p class="modal-intro">
+
         ${
           detectedStore
             ? `Factura detectada: ${escapeHTML(detectedStore)}. `
             : ""
         }
 
-        Revisa nombres, cantidades y precios antes
-        de agregarlos al inventario.
+        Confirma nombres, cantidades y precios
+        antes de agregarlos.
+
       </p>
 
       <div class="scan-note ${errorMessage ? "ocr-warning" : ""}">
+
         ${
           errorMessage
-            ? escapeHTML(errorMessage)
-            : `Confianza general de lectura: ${confidence}%`
+            ? escapeHTML(
+                errorMessage
+              )
+            : `
+                Confianza de lectura:
+                ${confidence}%
+              `
         }
+
       </div>
 
       <div class="review-head">
+
         <span>PRODUCTO</span>
         <span>CANT.</span>
         <span>PRECIO L</span>
         <span></span>
+
       </div>
 
       <div id="reviewRows">
-        ${initialRows.map(reviewRow).join("")}
+
+        ${initialRows
+          .map(reviewRow)
+          .join("")}
+
       </div>
 
       <button
@@ -1742,14 +2262,19 @@ function openReceiptReview(
         class="secondary-button"
         id="addReviewRow"
       >
-        + Agregar otra lÌnea
+        Ôºã Agregar otra l√≠nea
       </button>
 
       <div class="review-total">
-        <span>Total de productos</span>
+
+        <span>
+          Total detectado
+        </span>
+
         <strong id="reviewTotal">
           L 0.00
         </strong>
+
       </div>
 
       ${
@@ -1758,7 +2283,7 @@ function openReceiptReview(
             <details class="raw-details">
 
               <summary>
-                Ver texto leÌdo por el OCR
+                Ver texto le√≠do por el OCR
               </summary>
 
               <textarea readonly>${escapeHTML(rawText)}</textarea>
@@ -1769,7 +2294,7 @@ function openReceiptReview(
       }
 
       <button class="primary-button">
-        Agregar al inventario
+        Agregar al inventario üõí
       </button>
 
     </form>
@@ -1842,64 +2367,79 @@ function bindReviewRows() {
 }
 
 function updateReviewTotal() {
-  const sum = [
-    ...document.querySelectorAll(
-      '.review-row [data-field="price"]'
-    )
-  ].reduce(
-    (totalValue, input) =>
-      totalValue +
-      Number(input.value || 0),
-    0
-  );
+  const sum =
+    [
+      ...document.querySelectorAll(
+        '.review-row [data-field="price"]'
+      )
+    ].reduce(
+      (totalValue, input) =>
+        totalValue +
+        Number(input.value || 0),
+      0
+    );
 
   const totalNode =
-    document.querySelector("#reviewTotal");
+    document.querySelector(
+      "#reviewTotal"
+    );
 
-  if (totalNode) {
+  if (
+    totalNode
+  ) {
     totalNode.textContent =
       "L " + money(sum);
   }
 }
 
+/* =========================================================
+   GUARDAR PRODUCTOS DE FACTURA
+========================================================= */
+
 function saveReceiptProducts(event) {
   event.preventDefault();
 
-  const products = [
-    ...document.querySelectorAll(
-      ".review-row"
-    )
-  ]
-    .map(row => ({
-      name:
-        row
-          .querySelector(
-            '[data-field="name"]'
+  const products =
+    [
+      ...document.querySelectorAll(
+        ".review-row"
+      )
+    ]
+      .map(row => ({
+        name:
+          row
+            .querySelector(
+              '[data-field="name"]'
+            )
+            .value
+            .trim(),
+
+        qty:
+          Number(
+            row
+              .querySelector(
+                '[data-field="qty"]'
+              )
+              .value || 1
+          ),
+
+        price:
+          Number(
+            row
+              .querySelector(
+                '[data-field="price"]'
+              )
+              .value || 0
           )
-          .value
-          .trim(),
+      }))
+      .filter(
+        product =>
+          product.name
+      );
 
-      qty:
-        Number(
-          row
-            .querySelector(
-              '[data-field="qty"]'
-            )
-            .value || 1
-        ),
-
-      price:
-        Number(
-          row
-            .querySelector(
-              '[data-field="price"]'
-            )
-            .value || 0
-        )
-    }))
-    .filter(product => product.name);
-
-  if (!products.length) {
+  if (
+    !products.length
+  ) {
     showToast(
       "Agrega al menos un producto"
     );
@@ -1912,10 +2452,13 @@ function saveReceiptProducts(event) {
 
       items.unshift({
         id:
-          Date.now() + index,
+          Date.now() +
+          index,
 
         icon:
-          iconFor(product.name),
+          iconFor(
+            product.name
+          ),
 
         name:
           product.name,
@@ -1949,19 +2492,28 @@ function saveReceiptProducts(event) {
 
   showToast(
     products.length +
-      " productos agregados"
+    " productos agregados üõí"
   );
 }
+
+/* =========================================================
+   CERRAR MODAL
+========================================================= */
 
 function closeOverlay() {
   overlay.className = "";
   overlay.innerHTML = "";
 }
 
+/* =========================================================
+   EDITAR / AGREGAR PRODUCTO
+========================================================= */
+
 function openEditor(id) {
   const current =
     items.find(
-      item => item.id === id
+      item =>
+        item.id === id
     );
 
   overlay.className =
@@ -1978,26 +2530,31 @@ function openEditor(id) {
         class="modal-x"
         id="closeModal"
       >
-        ◊
+        √ó
       </button>
 
       <span class="eyebrow dark">
+
         ${
           current
             ? "EDITAR PRODUCTO"
             : "NUEVO PRODUCTO"
         }
+
       </span>
 
       <h2>
+
         ${
           current
             ? "Actualiza los datos"
-            : "Agregar manualmente"
+            : "Agregar manualmente üõí"
         }
+
       </h2>
 
       <label>
+
         Producto
 
         <input
@@ -2006,11 +2563,13 @@ function openEditor(id) {
           value="${escapeHTML(current?.name || "")}"
           placeholder="Ej. Banano"
         >
+
       </label>
 
       <div class="form-row">
 
         <label>
+
           Cantidad
 
           <input
@@ -2021,9 +2580,11 @@ function openEditor(id) {
             required
             value="${current?.qty || 1}"
           >
+
         </label>
 
         <label>
+
           Precio total (L)
 
           <input
@@ -2034,22 +2595,25 @@ function openEditor(id) {
             required
             value="${current?.price ?? ""}"
           >
+
         </label>
 
       </div>
 
       <label>
-        Nota o presentaciÛn
+
+        Nota o presentaci√≥n
 
         <input
           name="detail"
           value="${escapeHTML(current?.detail || "")}"
           placeholder="Ej. Bolsa de 2 lb"
         >
+
       </label>
 
       <button class="primary-button">
-        Guardar producto
+        Guardar producto ‚úì
       </button>
 
       ${
@@ -2081,10 +2645,14 @@ function openEditor(id) {
       event.preventDefault();
 
       const form =
-        new FormData(event.target);
+        new FormData(
+          event.target
+        );
 
       const name =
-        form.get("name").trim();
+        form
+          .get("name")
+          .trim();
 
       const data = {
         name,
@@ -2109,11 +2677,14 @@ function openEditor(id) {
           "Agregado manualmente"
       };
 
-      if (current) {
+      if (
+        current
+      ) {
         Object.assign(
           current,
           data
         );
+
       } else {
         items.unshift({
           id:
@@ -2133,28 +2704,37 @@ function openEditor(id) {
       }
 
       saveItems();
+
       closeOverlay();
+
       render();
 
       showToast(
-        "Producto guardado"
+        "Producto guardado ‚úì"
       );
     };
 
   const remove =
-    document.querySelector("#deleteItem");
+    document.querySelector(
+      "#deleteItem"
+    );
 
-  if (remove) {
+  if (
+    remove
+  ) {
     remove.onclick = () => {
 
       items =
         items.filter(
           item =>
-            item.id !== current.id
+            item.id !==
+            current.id
         );
 
       saveItems();
+
       closeOverlay();
+
       render();
 
       showToast(
@@ -2164,24 +2744,39 @@ function openEditor(id) {
   }
 }
 
+/* =========================================================
+   TOAST
+========================================================= */
+
 function showToast(message) {
   const toast =
     document.querySelector("#toast");
 
-  toast.textContent =
-    "? " + message;
+  if (!toast) return;
 
-  toast.hidden = false;
+  toast.textContent =
+    "‚úì " + message;
+
+  toast.hidden =
+    false;
 
   clearTimeout(
     showToast.timer
   );
 
   showToast.timer =
-    setTimeout(() => {
-      toast.hidden = true;
-    }, 2300);
+    setTimeout(
+      () => {
+        toast.hidden =
+          true;
+      },
+      2300
+    );
 }
+
+/* =========================================================
+   EVENTOS GLOBALES
+========================================================= */
 
 document
   .querySelectorAll("[data-tab]")
@@ -2190,15 +2785,30 @@ document
       go(el.dataset.tab);
   });
 
-document
-  .querySelector("#scanButton")
-  .onclick = () =>
-    receiptInput.click();
+const scanButton =
+  document.querySelector(
+    "#scanButton"
+  );
 
-receiptInput.onchange =
-  event =>
-    scanReceipt(
-      event.target.files?.[0]
-    );
+if (
+  scanButton
+) {
+  scanButton.onclick = () =>
+    receiptInput.click();
+}
+
+if (
+  receiptInput
+) {
+  receiptInput.onchange =
+    event =>
+      scanReceipt(
+        event.target.files?.[0]
+      );
+}
+
+/* =========================================================
+   INICIO
+========================================================= */
 
 render();
